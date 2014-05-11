@@ -4,13 +4,21 @@
     <% @statuses.each do |status| %>
     <div class="status">
         <h3><strong><%= status.user.first_name %> <%= status.user.last_name %></strong></h3>
-        
-        <p class="content"><%= status.content %></p>
-        <p class="time"><%= link_to time_ago_in_words(status.created_at) + " ago", status %>
+        <p class="time"><i class="fa fa-clock-o"></i>&nbsp;<%= link_to time_ago_in_words(status.created_at) + " ago", status %>
       <span class="admin">
-        &nbsp;|&nbsp; <%= link_to 'Edit', edit_status_path(status) %> &nbsp;| &nbsp;
-        <%= link_to 'Destroy', status, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+        &nbsp;|&nbsp; <%= link_to edit_status_path(status) do %>
+          <i class="fa fa-edit"></i>
+          Edit
+        <% end %> &nbsp;| &nbsp;
+        <%= link_to status, method: :delete, data: { confirm: 'Are you sure?' } do %>
+          <i class="fa fa-trash-o"></i>
+          Trash
+        <% end %>
       </span>
+      </p>
+        <p class="content"><%= status.content %></p>
+        
+      
     </div>
 
     <% end %>
