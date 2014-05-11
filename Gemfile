@@ -30,6 +30,8 @@ gem 'jbuilder', '~> 1.2'
 # User Authentication
 gem 'devise'
 
+gem 'simple_form'
+
 # Gravatars
 gem 'gravatarify', '~> 3.0.0'
 
