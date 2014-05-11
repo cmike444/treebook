@@ -3,7 +3,7 @@
 <%= link_to 'New Status', new_status_path, :class => "btn btn-success" %><br/><br/>
     <% @statuses.each do |status| %>
     <div class="status">
-        <h3><strong><%= status.name %></strong></h3>
+        <h3><strong><%= status.user.first_name %> <%= status.user.last_name %></strong></h3>
         
         <p class="content"><%= status.content %></p>
         <p class="time"><%= link_to time_ago_in_words(status.created_at) + " ago", status %>
